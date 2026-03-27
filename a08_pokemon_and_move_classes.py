@@ -64,7 +64,7 @@ class Pokemon :
     def __init__(self, name, elemental_type, hit_points) :
         self.name = name
         self.elemental_type = elemental_type
-        self.hit_points = 0
+        self.hit_points = hit_points
 
     #Create a method called get_info that returns the name, elemental_type, and hit_points in a string.
     def get_info(self):
@@ -75,3 +75,26 @@ class Pokemon :
     def heal(self):
         self.hit_points+=15
         print(f"{self.name.title()} has been healed to {self.hit_points} points. ")
+
+#list of pokemons
+pokemonList = []
+
+#Call the constructor 3 times to create 3 different Pokemon objects
+bulbasaur = Pokemon("Bulbasaur", "Grass", 60)
+charmander = Pokemon("Charmander", "Fire", 55)
+squirtle = Pokemon("Squirtle", "Water", 65)
+
+#Call the get_info method on the object storing the Charmander Pokémon and print out the result
+print(charmander.get_info())
+
+#Then call the heal method on the same Charmander object
+charmander.heal()
+
+#call the get_info method on the same Charmander object again
+print(charmander.get_info())
+
+#Put the 3 Pokemon objects into a list
+pokemonList = [bulbasaur, charmander, squirtle]
+
+for poke in pokemonList :
+    print(poke.get_info())
