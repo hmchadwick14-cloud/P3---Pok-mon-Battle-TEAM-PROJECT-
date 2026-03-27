@@ -36,3 +36,42 @@ move9 = Move("Solar Beam", "Grass", 18, 27)
 
 #create a list that stores each of the 9 objects in it
 move_list = [move1, move2, move3, move4, move5, move6, move7, move8, move9]
+
+#do a for loop that runs 3 times, and in each iteration, do the following:
+'''
+Randomly select a Move object from the list you created
+Print out the result of the get_info method of the randomly selected object.
+Print out Generated attack value:  and then the returned value from running the generate_attack_value method on the randomly selected object.
+Then delete the move from the list of moves. This ensures that you won't randomly select the same move twice. 
+If you randomly select the same move twice, the automated tests won't pass.
+'''
+
+for i in range(3) :
+    selected_move = random.choice(move_list)
+
+    print(selected_move.get_info())
+    print("Generated attack value:", selected_move.generate_attack_value())
+
+    move_list.remove(selected_move)
+
+#after finishing the loop, to add a pause in your program, add this line of code:
+
+input("Press enter to continue...")
+
+#create a class called Pokemon
+#Create the constructor with parameters for self, name, elemental_type, and hit_points
+class Pokemon :
+    def __init__(self, name, elemental_type, hit_points) :
+        self.name = name
+        self.elemental_type = elemental_type
+        self.hit_points = 0
+
+    #Create a method called get_info that returns the name, elemental_type, and hit_points in a string.
+    def get_info(self):
+        return f"{self.name.title()} - Type: {self.elemental_type} - Hit Points: {self.hit_points}"
+        
+    #Create a method called heal with just self as a parameter. It increases the current value of hit_points by 15 and prints out a message with 
+    # the Pokémon’s name and what their new value of hit_points are. It should print out the message directly in the method, and not return anything.
+    def heal(self):
+        self.hit_points+=15
+        print(f"{self.name.title()} has been healed to {self.hit_points} points. ")
